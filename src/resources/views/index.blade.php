@@ -1,33 +1,67 @@
 @extends('layouts.app')
 
 @section('css')
-<link rel="stylesheet" href="{{asset('index.css')}}">
+<link rel="stylesheet" href="{{ asset('css/index') }}">
 @endsection
 
 @section('content')
+<div class="todo__alert">
+    <div class="todo__alert-success">Todoを作成しました</div>
+</div>
 
-<div class="todo-form__content">
-    <div class="todo-form__heading">
-        <p>Todoを作成しました</p>
-    </div>
-    <form action="/index" class="form" method="post">
-        @csrf
-        <input type="text" name="text" id="">
-        <button class="form__button-submit" type="submit">作成</button>
+<div class="todo__content">
+    <form action="" class="create-form">
+        <div class="create-form__item">
+            <input type="text" name="content" class="create-form__item-input">
+        </div>
+        <div class="create-form__button">
+            <button class="create-form__button-submit" type="submit">作成</button>
+        </div>
     </form>
-    <table class="todo-table">
-        <tr class="todo-table__title">Todo</tr>
-        <tr>
-            <th>test1</th>
-            <td><input type="button" value="更新"></td>
-            <td><input type="button" value="削除"></td>
-        </tr>
-        <tr>
-            <th>test2</th>
-            <td><input type="button" value="更新"></td>
-            <td><input type="button" value="削除"></td>
-        </tr>
-    </table>
-
+    <div class="todo-table">
+        <table class="todo-table__inner">
+            <tr class="todo-table__row">
+                <th class="todo-table__header">Todo</th>
+            </tr>
+            <tr class="todo-table__row">
+                <td class="todo-table__item">
+                    <form class="update-form">
+                        <div class="update-form__item">
+                            <input type="text" name="content" value="test1" class="update-form__item-input">
+                        </div>
+                        <div class="update-form__button">
+                            <button class="update-form__button-submit" type="submit">更新</button>
+                        </div>
+                    </form>
+                </td>
+                <td class="todo-form__item">
+                    <form  class="delete-form">
+                        <div class="delete-form__button">
+                            <button class="delete-form__button-submit" type="submit">削除</button>
+                        </div>
+                    </form>
+                </td>
+            </tr>
+            <tr class="todo-table__row">
+                <td class="todo-table__item">
+                    <form class="update-form">
+                        <div class="update-form__item">
+                            <input type="text" name="content" value="test2" class="update-form__item-input">
+                        </div>
+                        <div class="update-form__button">
+                            <button class="update-form__button-submit" type="submit">更新</button>
+                        </div>
+                    </form>
+                </td>
+                <td class="todo-form__item">
+                    <form  class="delete-form">
+                        <div class="delete-form__button">
+                            <button class="delete-form__button-submit" type="submit">削除</button>
+                        </div>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
 </div>
 @endsection
